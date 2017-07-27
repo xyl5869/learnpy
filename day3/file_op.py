@@ -29,7 +29,7 @@ f.write("\n我爱北京天安门，\n")
 f.write("天安门上太阳升，")
 '''
 
-f = open("yesterday",'r',encoding="utf8")
+f = open("yesterday2",'a',encoding="utf8")
 '''
 #print(f.readline())     #readline函数，从第一行开始，每次打印一行
 
@@ -44,6 +44,7 @@ for index,line in enumerate(f.readlines()):
         continue
     print(line.strip())
 '''
+'''
 #高级写法，每次循环一行，并打印一行，下一次循环会把内存中的line值覆盖，然后再打印。不会撑爆内存，可以读大文件
 count = 0
 for line in f:
@@ -54,3 +55,34 @@ for line in f:
     print(line.strip())
     count += 1
 f.close()
+'''
+
+'''
+#tell()方法是打印当前位置，seek方法是回退到任意位置
+print(f.tell())
+print(f.readline())
+print(f.readline())
+print(f.readline())
+print(f.tell())
+f.seek(0)
+print(f.readline())
+'''
+
+'''
+#文件常用操作
+print(f.encoding)   #打印当前文件的字符编码
+
+print(f.fileno())   #打印文件的文件描述符序号
+
+print(f.name)   #打印文件名
+
+print(f.seekable())     #判断文件是否可以跳转
+
+print(f.readable())     #判断文件是否可读
+
+print(f.writable())     #判断文件是否可写
+
+print(f.flush())    #将文件在内存中的buffer写到磁盘中去
+
+f.truncate(9)    #截断，参数可以指定要保留的字符，如果不指定从文件开头开始截断，文件的打开方法必须是a
+'''
