@@ -29,8 +29,9 @@ f.write("\n我爱北京天安门，\n")
 f.write("天安门上太阳升，")
 '''
 
-f = open("yesterday2",'a',encoding="utf8")
+
 '''
+f = open("yesterday2",'a',encoding="utf8")
 #print(f.readline())     #readline函数，从第一行开始，每次打印一行
 
 #使用for循环打印多行
@@ -86,3 +87,15 @@ print(f.flush())    #将文件在内存中的buffer写到磁盘中去
 
 f.truncate(9)    #截断，参数可以指定要保留的字符，如果不指定从文件开头开始截断，文件的打开方法必须是a
 '''
+
+#f = open("yesterday2",'r+',encoding="utf-8") #文件句柄 读写
+#f = open("yesterday2",'w+',encoding="utf-8") #文件句柄 写读
+#f = open("yesterday2",'a+',encoding="utf-8") #文件句柄 追加读写
+#f = open("yesterday2",'rb') #文件句柄  读二进制文件
+#print(f.readline())
+f = open("yesterday2",'wb') #文件句柄  写二进制文件
+f.write("hello binary\n".encode())
+f.close()
+f = open("yesterday2","rb")
+print(f.readline())
+f.close()
